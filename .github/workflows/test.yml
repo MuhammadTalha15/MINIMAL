@@ -19,4 +19,4 @@ jobs:
       - name: Validate HTML File
         run: | 
           sudo apt install tidy -y
-          tidy errors index.html
+          tidy -e index.html
