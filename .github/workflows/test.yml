@@ -16,7 +16,8 @@ jobs:
       - name: Check HTML Existing
         run: ls index.html
 
-      - name: Validate HTML File
-        run: | 
-          sudo apt install tidy -y
-          tidy -e index.html
+      - name: Install Tidy for HTML 
+        run: sudo apt install tidy -y
+      
+      - name: Run Tidy to Validate HTML
+        run:  tidy -e index.html
