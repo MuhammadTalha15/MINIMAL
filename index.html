@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minimal Commerce</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e5e7eb;
+      --accent: #0ea5e9;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 1rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--text);
+      margin-left: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .hero {
+      max-width: 1200px;
+      margin: auto;
+      padding: 4rem 1.25rem 3rem;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      color: var(--muted);
+      margin: 1.25rem 0;
+      max-width: 520px;
+    }
+
+    .hero button {
+      padding: 0.75rem 1.25rem;
+      border: 1px solid var(--text);
+      background: var(--text);
+      color: white;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+    }
+
+    section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 3rem 1.25rem;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .section-title h2 {
+      font-size: 1.4rem;
+      letter-spacing: -0.02em;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      background: #fff;
+      transition: border-color 0.2s ease;
+    }
+
+    .card:hover {
+      border-color: var(--text);
+    }
+
+    .card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 0.9rem;
+    }
+
+    .card-body h3 {
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .price {
+      margin-top: 0.5rem;
+      font-weight: 600;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 1.25rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav">
+      <div class="logo">MINIMAL.</div>
+      <nav>
+        <a href="#">Shop</a>
+        <a href="#">New</a>
+        <a href="#">About</a>
+        <a href="#">Cart</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div>
+        <h1>Designed for everyday use</h1>
+        <p>High‑quality products with a clean aesthetic. Built to practice real‑world deployment workflows.</p>
+        <button>Explore Collection</button>
+      </div>
+      <img loading="lazy" src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" alt="Minimal product" />
+    </div>
+
+    <section>
+      <div class="section-title">
+        <h2>Featured Products</h2>
+      </div>
+
+      <div class="products">
+        <div class="card">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1519741497674-611481863552" alt="Backpack" />
+          <div class="card-body">
+            <h3>Urban Backpack</h3>
+            <div class="price">$89</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30" alt="Watch" />
+          <div class="card-body">
+            <h3>Minimal Watch</h3>
+            <div class="price">$149</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="Shoes" />
+          <div class="card-body">
+            <h3>Daily Sneakers</h3>
+            <div class="price">$129</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1503602642458-232111445657" alt="Headphones" />
+          <div class="card-body">
+            <h3>Studio Headphones</h3>
+            <div class="price">$199</div>
+          </div>
+        </div>
+              <div class="card">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f" alt="Jacket" />
+          <div class="card-body">
+            <h3>Essential Jacket</h3>
+            <div class="price">$179</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c" alt="T-Shirt" />
+          <div class="card-body">
+            <h3>Premium Cotton Tee</h3>
+            <div class="price">$39</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1526178613552-2b45c6c302f0" alt="Sunglasses" />
+          <div class="card-body">
+            <h3>Classic Sunglasses</h3>
+            <div class="price">$69</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img loading="lazy" src="https://leathergallery.pk/wp-content/uploads/2024/11/sleek-book-wallet-6-scaled.jpg" alt="Wallet" />
+          <div class="card-body">
+            <h3>Leather Wallet</h3>
+            <div class="price">$59</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Minimal Commerce — Deployment Practice Project
+  </footer>
+
+</body>
+</html>
