@@ -14,9 +14,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Check HTML Existing
-      - run: ls index.html
+        run: ls index.html
 
       - name: Validate HTML File
-      - run: | 
+        run: | 
           sudo apt install tidy -y
           tidy erros index.html
