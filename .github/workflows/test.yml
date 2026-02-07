@@ -13,4 +13,10 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - run: echo "Hello World"
+      - name: Check HTML Existing
+      - run: ls index.html
+
+      - name: Validate HTML File
+      - run: | 
+          sudo apt install tidy -y
+          tidy erros index.html
