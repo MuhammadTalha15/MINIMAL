@@ -1,23 +1,50 @@
-name: Project Continous Integration Testing
+name: Project Continuous Integration Testing
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
-      - name: Checkout Code
+    
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Check HTML Existing
-        run: ls index.html
+      - name: Enable strict mode
+        run: |
+          set -euo pipefail
 
-      - name: Install Tidy for HTML 
-        run: sudo apt install tidy -y
-      
-      - name: Run Tidy to Validate HTML
-        run:  tidy -e index.html
+      - name: Check index.html exists
+        run: |
+          test -f index.html || (echo "index.html not found" && exit 1)
+
+      - name: Install system tools
+        run: |
+          sudo apt update
+          sudo apt install -y tidy curl
+
+      - name: Validate HTML with Tidy
+        run: |
+          tidy -e -q -utf8 index.html || true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install HTMLHint
+        run: npm install -g htmlhint
+
+      - name: Lint HTML
+        run: htmlhint index.html
+
+      - name: Check external links
+        run: |
+          grep -oE 'https?://[^"]+' index.html | while read url; do
+            echo "Checking $url"
+            curl -Is --max-time 10 "$url" | head -n 1
+          done
